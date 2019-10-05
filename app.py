@@ -22,8 +22,6 @@ import urllib, urllib3, urllib.parse, codecs
 from urllib.parse import quote
 from bs4 import BeautifulSoup
 from pytube import YouTube
-#from fuzzy.logic import matching
-#from spo.main import assu
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
     SourceUser, SourceGroup, SourceRoom,
@@ -39,15 +37,9 @@ from linebot.models import (
     SeparatorComponent,
 )
 app = Flask(__name__)
-line_bot_api = LineBotApi('TOKEN DISINI YA BUJANK')
-handler = WebhookHandler('DISINI SECREET')
+line_bot_api = LineBotApi('y9utrlLNYMFFoyyl82VXzzG8p81Gt1TvrFasOwneagO63MHLux6GHG2JxtyzkfSJYcweQObwoBkS6xpeRBJzGN/6ULoUvQxMjYuN4NWhBnl5xp7G3guk+T8oSDJRxzE06vaJh/bwdPbJQpimikYGFQdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('57232911b1b2427470ff3f68afc87da5')
 flex = flexTemplate()
-#fuzz = matching()
-#spo = assu()
-#===================[ DATABASE ]==========================
-#admin = 'U3df4b705c523d882af0197e8aab7807b'
-#autochat = []
-#shut_ = []
 #===================[ LINKE STARTO ]=====================	
 @app.route('/')
 def helo():
@@ -113,7 +105,7 @@ def handle_message(event):
 		"""
 		Sending a Video
 		param :
-		- Video URL (must url not a patch)
+		- Video URL (must url)
 		- Thumbnail URL (image url)
 		"""
 		message = VideoSendMessage(original_content_url=thumb,preview_image_url=video)
@@ -149,7 +141,7 @@ def handle_message(event):
 		"""
 		Sending a Image
 		param :
-		- Image URL (must url not patch)
+		- Image URL (must url)
 		"""
 		message = ImageSendMessage(original_content_url='{}'.format(str(url)),preview_image_url='{}'.format(str(url)))
 		line_bot_api.reply_message(event.reply_token, message)
